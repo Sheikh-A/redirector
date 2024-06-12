@@ -6,7 +6,16 @@
         document.addEventListener("DOMContentLoaded", function() {
             // Extract the referral code from the URL
             const urlParams = new URLSearchParams(window.location.search);
-            const referralCode = urlParams.get('ref');
+            const allParams = Array.from(urlParams.entries());
+            let referralCode = null;
+
+            // Find the correct 'ref' parameter
+            for (const [key, value] of allParams) {
+                if (key.toLowerCase() === 'ref') {
+                    referralCode = value;
+                    break;
+                }
+            }
 
             // Redirect to the Airtable form with the referral code
             if (referralCode) {
