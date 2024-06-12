@@ -2,19 +2,22 @@
 <html>
 <head>
     <title>Redirector</title>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            // Extract the referral code from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const referralCode = urlParams.get('ref');
+
+            // Redirect to the Airtable form with the referral code
+            if (referralCode) {
+                const redirectUrl = `https://airtable.com/app6YTGxAGsLpEKiX/shrQ3dveSPmXdKjFW?prefill_ReferralCode=${referralCode}`;
+                window.location.href = redirectUrl;
+            } else {
+                window.location.href = 'https://airtable.com/app6YTGxAGsLpEKiX/shrQ3dveSPmXdKjFW';
+            }
+        });
+    </script>
 </head>
 <body>
-    <script type="text/javascript">
-        // Extract the referral code from the URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const referralCode = urlParams.get('ref');
-
-        // Redirect to the Airtable form with the referral code
-        if (referralCode) {
-            window.location.href = `https://airtable.com/app6YTGxAGsLpEKiX/shrQ3dveSPmXdKjFW?prefill_ReferralCode=${referralCode}`;
-        } else {
-            window.location.href = 'https://airtable.com/app6YTGxAGsLpEKiX/shrQ3dveSPmXdKjFW';
-        }
-    </script>
 </body>
 </html>
