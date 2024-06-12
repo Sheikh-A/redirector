@@ -9,8 +9,8 @@
             const allParams = Array.from(urlParams.entries());
             let referralCode = null;
 
-            // Find the correct 'ref' parameter
-            for (const [key, value] of allParams) {
+            // Find the last occurrence of the 'ref' parameter
+            for (const [key, value] of allParams.reverse()) {
                 if (key.toLowerCase() === 'ref') {
                     referralCode = value;
                     break;
